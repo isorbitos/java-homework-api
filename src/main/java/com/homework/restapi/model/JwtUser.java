@@ -6,10 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @EqualsAndHashCode(of = "uuid")
 @Getter
@@ -26,6 +23,12 @@ public class JwtUser implements  UserDetails{
     @Builder.Default
     private String uuid = UUID.randomUUID().toString();
 
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(name = "user_id")
+    private List<Message> messages = new ArrayList<>();
+
     @Column
     private String username;
 
@@ -34,6 +37,7 @@ public class JwtUser implements  UserDetails{
 
     @Column
     private String password;
+
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -73,4 +77,15 @@ public class JwtUser implements  UserDetails{
     public boolean isEnabled() {
         return this.enabled;
     }
+
+    public void addMessage(Message message){
+        messages.add(message);
+    }
+
+    public void removeMessage(Message message){
+        messages.remove(message);
+    }
+
+
+
 }

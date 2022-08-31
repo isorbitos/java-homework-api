@@ -17,7 +17,7 @@ public class Message {
     private Timestamp msgCreated;
 
     @ManyToOne
-    private User user;
+    private JwtUser user;
 
     public static Message from(MessageDto messageDto){
         Message message = new Message();

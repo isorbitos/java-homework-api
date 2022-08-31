@@ -35,23 +35,5 @@ public class MessageController {
         return new ResponseEntity<>(messageDtos, HttpStatus.OK);
     }
 
-    @GetMapping(value = "{id}")
-    public ResponseEntity<MessageDto> getMessage(@PathVariable final Long id){
-        Message message = messageService.getMessage(id);
-        return new ResponseEntity<>(MessageDto.from(message), HttpStatus.OK);
-    }
-
-    @DeleteMapping(value = "{id}")
-    public ResponseEntity<MessageDto> deleteMessage(@PathVariable final Long id){
-        Message message = messageService.deleteMessage(id);
-        return new ResponseEntity<>(MessageDto.from(message), HttpStatus.OK);
-    }
-
-    @PutMapping(value = "{id}")
-    public ResponseEntity<MessageDto> editMessage(@PathVariable final Long id, @RequestBody final MessageDto messageDto){
-        Message messageToEdit = messageService.editMessage(id, Message.from(messageDto));
-        return new ResponseEntity<>(MessageDto.from(messageToEdit), HttpStatus.OK);
-    }
-
 
 }

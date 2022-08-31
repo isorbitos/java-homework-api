@@ -53,6 +53,7 @@ public class JwtApiSecurity {
                     }
                 })
                 .httpBasic(Customizer.withDefaults());
+        http.headers().frameOptions().sameOrigin();
         return http.build();
     }
 

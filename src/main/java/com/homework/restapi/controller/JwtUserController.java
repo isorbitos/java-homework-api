@@ -2,6 +2,7 @@ package com.homework.restapi.controller;
 
 import com.homework.restapi.model.JwtUser;
 import com.homework.restapi.model.dto.JwtUserDto;
+import com.homework.restapi.model.dto.MsgStatisticsDto;
 import com.homework.restapi.service.JwtUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,6 +42,10 @@ public class JwtUserController {
         return new ResponseEntity<>(JwtUserDto.from(user), HttpStatus.OK);
     }
 
-
+    @GetMapping(value = "/statistics/{userId}")
+    public  ResponseEntity<MsgStatisticsDto> getUserStatistic(@PathVariable final Long userId){
+        JwtUser user = userServicese.getUserById(userId);
+        return new ResponseEntity<>(MsgStatisticsDto.from(user), HttpStatus.OK);
+    }
 
 }

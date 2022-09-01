@@ -39,7 +39,7 @@ public class JwtApiSecurity {
                     try {
                         auth
                                 .antMatchers("/user").hasAnyRole("USER")
-                                .antMatchers("/admin**", "/deleteuser/**").hasAnyRole("ADMIN")
+                                .antMatchers("/admin**", "/deleteuser/**", "/statistics/**").hasAnyRole("ADMIN")
                                 .anyRequest().permitAll()
                                 .and()
                                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

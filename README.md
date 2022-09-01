@@ -17,7 +17,7 @@ TODO:
 [http://localhost:8080/h2](http://localhost:8080/h2)
 ## Admin function
 
-To get admin token:
+Get admin token:
 - Postman
 - http://localhost:8080/login
 - POST

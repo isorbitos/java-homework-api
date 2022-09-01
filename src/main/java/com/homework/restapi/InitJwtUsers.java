@@ -48,11 +48,11 @@ public class InitJwtUsers implements CommandLineRunner {
                 .msgCreated(new Timestamp(System.currentTimeMillis()))
                 .build());
         Message msg3 = messageService.addMessage(Message.builder()
-                .msgText("text111")
+                .msgText("text111222")
                 .msgCreated(new Timestamp(System.currentTimeMillis()))
                 .build());
         Message msg4 = messageService.addMessage(Message.builder()
-                .msgText("text111")
+                .msgText("text11133344444")
                 .msgCreated(new Timestamp(System.currentTimeMillis()))
                 .build());
 

@@ -1,12 +1,18 @@
 package com.homework.restapi.model;
 
 import com.homework.restapi.model.dto.MessageDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Messages")
 public class Message {
